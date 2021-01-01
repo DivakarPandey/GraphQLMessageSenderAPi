@@ -1,0 +1,64 @@
+Following queries are written for you try hitting those queries there before hitting those queries
+make sure that you have setup your database which is posgres in you local machine.
+
+
+
+###get messages
+{
+  allMessages{
+    edges{
+      node{
+        author{
+          phonenumber
+        	messages{
+            edges{
+              node{
+                message
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+###list all users
+{
+  allUsers{
+    edges{
+      node{
+        phonenumber
+        username
+      }
+    }
+  }
+}
+
+###add new user
+mutation{
+  addUser(
+    phonenumber:"6218769043"
+    username: "harry"
+  ){
+    user{
+      username
+      phonenumber
+    }
+  }
+}
+
+###add message
+mutation{
+  addMessage(
+  id: 34
+  phonenumber:"62187769043"
+  message: "Hello Divakar"
+  date: "2021-12-1"
+  ){
+    message{
+      phonenumber
+      message
+    }
+  }
+}
